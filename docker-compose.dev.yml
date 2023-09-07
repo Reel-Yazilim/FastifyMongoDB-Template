@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  dev_api:
+    container_name: Dev_Api_Fastify
+    build: .
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=Development
+      - DEV_DB_HOST=mongo
+      - DEV_REDIS_HOST=redis
+      - DEV_DB_PORT=27017
+      - DEV_REDIS_PORT=6379
+      - PORT=3000
+      - HOST=0.0.0.0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+      - redis
+    networks:
+      - Dev_Api_Fastify_Network
+
+  mongo:
+    container_name: Dev_MongoDB_Fastify
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - Dev_Api_Fastify_Network
+
+  redis:
+    container_name: Dev_Redis_Fastify
+    image: redis:latest
+    ports:
+      - "6400:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - Dev_Api_Fastify_Network
+
+networks:
+  Dev_Api_Fastify_Network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+  redis-data:

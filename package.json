@@ -1,0 +1,63 @@
+{
+  "name": "fastify-typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "Fastify Typescript Boilerplate with JWT Authentication, Swagger, CORS, Static Files, Redis, Mongoose, Socket.io, Node Schedule, Pino Logger, PM2, Nodemon, and more!",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev:node": "nodemon src/index.ts",
+    "start:node": "tsc -p tsconfig.json && node ./dist/index.js",
+    "start:pm2": "pm2 start ecosystem.config.js --env production",
+    "dev:pm2": "pm2 start ecosystem.config.js --env development",
+    "start:docker": "docker-compose -p fastify-production-server up -d",
+    "stop:docker": "docker-compose down",
+    "dev:docker": "docker-compose -p fastify_development_server -f docker-compose.dev.yml up -d --build --force-recreate",
+    "stop:dev:docker": "docker-compose -f docker-compose.dev.yml down"
+  },
+  "keywords": [
+    "fastify",
+    "typescript",
+    "boilerplate",
+    "jwt",
+    "authentication",
+    "swagger",
+    "cors",
+    "static",
+    "redis",
+    "mongoose",
+    "socket.io",
+    "node-schedule",
+    "pino",
+    "pm2",
+    "nodemon"
+  ],
+  "author": "Alperen Ekici",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "@fastify/jwt": "^7.2.0",
+    "@fastify/static": "^6.10.2",
+    "@fastify/swagger": "^7.6.1",
+    "bcrypt": "^5.1.1",
+    "bluebird": "^3.7.2",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.21.0",
+    "fastify-socket.io": "^4.0.0",
+    "mongoose": "^7.4.4",
+    "node-schedule": "^2.1.1",
+    "pino": "^8.15.0",
+    "pino-pretty": "^10.2.0",
+    "redis": "^4.6.8",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/bluebird": "^3.5.38",
+    "@types/node": "^20.5.4",
+    "@types/node-schedule": "^2.1.0",
+    "@types/ssh2": "^1.11.13",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
