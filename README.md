@@ -21,29 +21,46 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/fastify-typescript-boilerplate.git
+git clone https://github.com/TheAlpiz/fastify-typescript-boilerplate.git
+```
 
-Change the working directory
+2. Change the working directory
+```bash
 cd fastify-typescript-boilerplate
+```
 
-Install dependencies
+3. Install dependencies
+```bash
 npm install
+```
+
 
 ### Development
 Run the app in development mode
-npm run dev:node Or npm run dev:pm2
+```bash
+1. npm run dev:node 
+2. npm run dev:pm2
+```
+
 
 
 ### Production
 Run the app in production mode
-npm run start:node Or npm run start:pm2
+```bash
+npm run start:node
+npm run start:pm2
+```
 
 ## For Docker
 ### Production
+```bash
 npm run start:docker
+```
 
 ### Development 
+```bash
 npm run dev:docker 
+```
 
 # Features
 Fastify: Fast and low overhead web framework for Node.js.
