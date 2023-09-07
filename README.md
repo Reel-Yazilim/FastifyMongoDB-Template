@@ -1,6 +1,6 @@
 # Fastify TypeScript Boilerplate
 
-![Node.js CI](https://github.com/your-username/your-repo-name/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/TheAlpiz/FastifyMongoDB-Template/workflows/Node.js%20CI/badge.svg)
 ![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)
 
 Fastify TypeScript Boilerplate with features like JWT Authentication, Swagger, CORS, Static Files, Redis, Mongoose, Socket.io, SSH2, Node Schedule, Pino Logger, PM2, Nodemon, and more!
