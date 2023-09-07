@@ -1,6 +1,6 @@
 # Fastify TypeScript Boilerplate
 
-![Node.js CI](https://github.com/your-username/your-repo-name/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/TheAlpiz/FastifyMongoDB-Template/workflows/Node.js%20CI/badge.svg)
 ![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)
 
 Fastify TypeScript Boilerplate with features like JWT Authentication, Swagger, CORS, Static Files, Redis, Mongoose, Socket.io, SSH2, Node Schedule, Pino Logger, PM2, Nodemon, and more!
@@ -63,19 +63,34 @@ npm run dev:docker
 ```
 
 # Features
-Fastify: Fast and low overhead web framework for Node.js.
-TypeScript: Superset of JavaScript which primarily provides optional static typing, classes, and interfaces.
-JWT: Implementation of JSON Web Tokens.
-Swagger: Interactive API documentation.
-CORS: Cross-Origin Resource Sharing.
-Static Files: Serving static files using Fastify.
-Redis: In-memory data structure store, used as a database, cache, and message broker.
-Mongoose: Elegant MongoDB object modeling for Node.js.
-Socket.io: Real-time bidirectional event-based communication.
-Node Schedule: Node.js job scheduler.
-Pino Logger: Extremely fast Node.js logger.
-PM2: Advanced production process manager for Node.js.
-Nodemon: Utility that monitors for any changes in your source and automatically restarts your server.
+## Fastify: 
+Fast and low overhead web framework for Node.js.
+## TypeScript: 
+Superset of JavaScript which primarily provides optional static typing, classes, and interfaces.
+## JWT: 
+Implementation of JSON Web Tokens.
+## Swagger: 
+Interactive API documentation.
+## CORS: 
+Cross-Origin Resource Sharing.
+## Static Files: 
+Serving static files using Fastify.
+## Redis: 
+In-memory data structure store, used as a database, cache, and message broker.
+## Mongoose: 
+Elegant MongoDB object modeling for Node.js.
+## Socket.io: 
+Real-time bidirectional event-based communication.
+## Node Schedule: 
+Node.js job scheduler.
+## Pino Logger: 
+Extremely fast Node.js logger.
+## PM2: 
+Advanced production process manager for Node.js.
+## Nodemon: 
+Utility that monitors for any changes in your source and automatically restarts your server.
+## Docker:
+Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
