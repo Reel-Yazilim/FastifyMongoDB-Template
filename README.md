@@ -2,18 +2,22 @@
 
 ![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)
 
-Fastify TypeScript Boilerplate with features like JWT Authentication, Swagger, CORS, Static Files, Redis, Mongoose, Socket.io, SSH2, Node Schedule, Pino Logger, PM2, Nodemon, and more!
+Fastify TypeScript Boilerplate with features like JWT Authentication, Swagger, CORS, Static Files, Redis, Mongoose, Socket.io, Node Schedule, Pino Logger, PM2, Nodemon, and more!
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
+## Prerequisites
 
 - Node.js
 - npm
 - Redis
 - MongoDB
+
+### Additional
+
+- If you're going to start the project in the docker, It downloads the Redis and MongoDB and connects.
 
 ### Installation
 
