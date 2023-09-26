@@ -1,8 +1,9 @@
 {
   "name": "fastify-typescript-boilerplate",
-  "version": "1.0.11",
+  "version": "1.0.20",
   "description": "Fastify Typescript Boilerplate with JWT Authentication, Swagger, CORS, Static Files, Redis, Mongoose, Socket.io, Node Schedule, Pino Logger, PM2, Nodemon, and more!",
   "main": "src/index.ts",
+  "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev:node": "nodemon src/index.ts",
@@ -40,14 +41,15 @@
     "@fastify/swagger": "^7.6.1",
     "bcrypt": "^5.1.1",
     "bluebird": "^3.7.2",
+    "chalk": "^5.3.0",
     "dotenv": "^16.3.1",
     "fastify": "^4.21.0",
     "fastify-socket.io": "^4.0.0",
-    "mongoose": "^7.4.4",
+    "inquirer": "^9.2.11",
     "node-schedule": "^2.1.1",
+    "ora": "^7.0.1",
     "pino": "^8.15.0",
     "pino-pretty": "^10.2.0",
-    "redis": "^4.6.8",
     "socket.io": "^4.7.2"
   },
   "devDependencies": {
