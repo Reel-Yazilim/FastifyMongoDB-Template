@@ -2,12 +2,6 @@ import { RouteOptions } from "fastify";
 import Schemas from "../documentation";
 import baseURL from "../../config/api-version";
 import Controllers from "../../controllers";
-import { hashPassword } from "../../lib/bcrypt";
-
-interface UserBody {
-  username: string;
-  password: string;
-}
 
 const readUsers: RouteOptions = {
   method: "GET",
@@ -22,23 +16,7 @@ const createUser: RouteOptions = {
   url: `${baseURL}/users`,
   handler: Controllers.UserController.createUserHandler,
   schema: Schemas.userSchemas.createUserSchema,
-  preHandler: (request, reply, done) => {
-    const body = request.body as UserBody;
-
-    if (typeof body !== "object" || !body) {
-      return reply.code(400).send({ error: "Body is required" });
-    }
-
-    if (!body.password) {
-      return reply.code(400).send({ error: "Password is required" });
-    }
-
-    const hashedPass = hashPassword(body.password);
-    // Do something with hashedPass, for example add it to request.body
-    body.password = hashedPass;
-
-    done();
-  },
+  preHandler: Controllers.UserController.userPreHandlers.createUser,
 };
 
 // Read User

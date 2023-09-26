@@ -7,20 +7,10 @@ const registerHandler = async (
   reply: FastifyReply
 ) => {
   try {
-    if (!request.body) throw new Error("Body is not defined");
-
-    if (typeof request.body !== "object")
-      throw new Error("Body is not defined");
-
-    if (!("username" in request.body)) throw new Error("Body is not defined");
-
-    if (!("password" in request.body)) throw new Error("Body is not defined");
-
-    const { username, password } = request.body;
-
-    if (typeof username !== "string") throw new Error("Username is not string");
-
-    if (typeof password !== "string") throw new Error("Password is not string");
+    const { username, password } = request.body as {
+      username: string;
+      password: string;
+    };
 
     const hashedPassword = hashPassword(password);
     const newUser = new Models.UserModel({
@@ -40,20 +30,10 @@ const registerHandler = async (
 
 const loginHandler = async (request: FastifyRequest, reply: FastifyReply) => {
   try {
-    if (!request.body) throw new Error("Body is not defined");
-
-    if (typeof request.body !== "object")
-      throw new Error("Body is not defined");
-
-    if (!("username" in request.body)) throw new Error("Body is not defined");
-
-    if (!("password" in request.body)) throw new Error("Body is not defined");
-
-    const { username, password } = request.body;
-
-    if (typeof username !== "string") throw new Error("Username is not string");
-
-    if (typeof password !== "string") throw new Error("Password is not string");
+    const { username, password } = request.body as {
+      username: string;
+      password: string;
+    };
 
     const user = await Models.UserModel.findOne({ username });
 

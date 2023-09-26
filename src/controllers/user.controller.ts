@@ -1,5 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import Models from "../models";
+import { hashPassword } from "../lib/bcrypt";
 
 export const getUsersHandler = async (
   request: FastifyRequest,
@@ -31,19 +32,9 @@ export const readUserHandler = async (
   reply: FastifyReply
 ) => {
   try {
-    if (!request.params) {
-      throw new Error("Params is not defined");
-    }
-
-    if (typeof request.params !== "object") {
-      throw new Error("Params is not defined");
-    }
-
-    if (!("id" in request.params)) {
-      throw new Error("Params is not defined");
-    }
-
-    const { id } = request.params;
+    const { id } = request.params as {
+      id: string;
+    };
 
     const user = await Models.UserModel.findById(id);
     if (user) {
@@ -61,19 +52,9 @@ export const updateUserHandler = async (
   reply: FastifyReply
 ) => {
   try {
-    if (!request.params) {
-      throw new Error("Params is not defined");
-    }
-
-    if (typeof request.params !== "object") {
-      throw new Error("Params is not defined");
-    }
-
-    if (!("id" in request.params)) {
-      throw new Error("Params is not defined");
-    }
-
-    const { id } = request.params;
+    const { id } = request.params as {
+      id: string;
+    };
     const { body } = request;
 
     if (!body) throw new Error("Body is not defined");
@@ -96,20 +77,12 @@ export const deleteUserHandler = async (
   reply: FastifyReply
 ) => {
   try {
-    if (!request.params) {
-      throw new Error("Params is not defined");
-    }
+    const { id } = request.params as {
+      id: string;
+    };
 
-    if (typeof request.params !== "object") {
-      throw new Error("Params is not defined");
-    }
-
-    if (!("id" in request.params)) {
-      throw new Error("Params is not defined");
-    }
-
-    const { id } = request.params;
     const deletedUser = await Models.UserModel.findByIdAndDelete(id);
+
     if (deletedUser) {
       reply.code(200).send({ success: "User deleted" });
     } else {
@@ -119,3 +92,16 @@ export const deleteUserHandler = async (
     reply.code(500).send({ error: "Failed to delete user" });
   }
 };
+
+export class userPreHandlers {
+  static async createUser(
+    request: FastifyRequest,
+    reply: FastifyReply,
+    done: Function
+  ) {
+    const body = request.body as IUserBody;
+    const hashedPass = hashPassword(body.password);
+    body.password = hashedPass;
+    done();
+  }
+}
