@@ -1,6 +1,6 @@
 import Models from "../models";
 import { hashPassword } from "./bcrypt";
-import server from "../";
+import { server } from "./server";
 
 export default async function init() {
   const HashedPassword = hashPassword("12345678");

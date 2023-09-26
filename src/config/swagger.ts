@@ -11,7 +11,7 @@ const swaggerOptions: SwaggerOptions = {
   swagger: {
     info: {
       title: "Fastify Template",
-      description: "Fastify Template Dökümantasyonu",
+      description: "Fastify Template Documentation",
       version: process.env.DOCS_VERSION!,
     },
     host: config.app.host,

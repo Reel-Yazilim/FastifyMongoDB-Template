@@ -1,4 +1,4 @@
-import { ServerPlugins, server } from "../index";
+import { ServerPlugins, server } from "./server";
 
 export const setCache = async (
   key: string,
@@ -21,6 +21,38 @@ export const getCache = async (key: string): Promise<any> => {
   } catch (err) {
     server.log.error(`Failed to get cache for key ${key}: ${err}`);
     return null;
+  }
+};
+
+export const getCacheKeys = async (pattern: string): Promise<string[]> => {
+  try {
+    const keys = await ServerPlugins.redis.keys(pattern);
+    return keys;
+  } catch (err) {
+    server.log.error(`Failed to get cache keys for pattern ${pattern}: ${err}`);
+    return [];
+  }
+};
+
+export const getCacheKeysCount = async (pattern: string): Promise<number> => {
+  try {
+    const keys = await ServerPlugins.redis.keys(pattern);
+    return keys.length;
+  } catch (err) {
+    server.log.error(
+      `Failed to get cache keys count for pattern ${pattern}: ${err}`
+    );
+    return 0;
+  }
+};
+
+export const checkCache = async (key: string): Promise<boolean> => {
+  try {
+    const exists = await ServerPlugins.redis.exists(key);
+    return exists === 1;
+  } catch (err) {
+    server.log.error(`Failed to check cache for key ${key}: ${err}`);
+    return false;
   }
 };
 
